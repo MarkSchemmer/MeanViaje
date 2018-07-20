@@ -1,34 +1,37 @@
 const ModelObj = require('../model/model')
-const obj = ModelObj.product
+const pet = ModelObj.pet
 
-function allObjs (req, res) {
-    obj.find({})
+function allPets (req, res) {
+    pet.find({})
         .then(dt => res.json(dt))
         .catch(er => res.json(er))
 }
 
-function objById (req, res) {
-    obj.findById(req.params.id)
+function petById (req, res) {
+    console.log(req.params.id)
+    pet.findById(req.params.id)
     .then(dt => res.json(dt))
     .catch(er => res.json(er))
 }
 
-function updateObjById (req, res) {
-    obj
-    .findByIdAndUpdate(req.params.id, req.body, { runValidators:true })
+function updatePetById (req, res) {
+    pet.findByIdAndUpdate(req.params.id, req.body, {
+        runValidators: true,
+        context: "query"
+    })
     .then(dt => res.json(dt))
     .catch(er => res.json(er))
 }
 
-function createObj (req, res) {
-    obj.create(req.body)
-        .then(dt => res.json(dt))
+function createPet (req, res) {
+    pet.create(req.body)
+        .then(data => res.json(data))
         .catch(er => res.json(er))
 }
 
 
-function deleteObjById (req, res) {
-    obj
+function deletePetById (req, res) {
+    pet
     .findByIdAndRemove(req.params.id)
     .then(dt => res.json(dt))
     .catch(er => res.json(er))
@@ -36,9 +39,9 @@ function deleteObjById (req, res) {
 
 
 module.exports = {
-    allObjs : allObjs,
-    objById : objById,
-    updateObjById : updateObjById,
-    createObj : createObj,
-    deleteObjById : deleteObjById,
+    allPets : allPets,
+    petById : petById,
+    updatePetById : updatePetById,
+    createPet : createPet,
+    deletePetById : deletePetById,
 }

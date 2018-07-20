@@ -1,0 +1,32 @@
+
+<style>
+  button { margin-right:10px; }
+</style>
+
+<h5>Details about {{ pet.name }}</h5>
+
+<strong>Pet type</strong> {{ pet.petType}}
+
+<br>
+
+<strong>Description : </strong> {{ pet.desc  }}
+
+<br>
+
+<strong> Likes : </strong>  {{ totalLikes }}
+
+
+<br>
+
+
+  <ul>
+    <h6>Skills</h6>
+    <li *ngFor="let sk of skills" >
+       <p> <strong> {{ sk }} </strong> </p>
+    </li>
+  </ul>
+
+
+  <button class="add-pet waves-effect waves-light btn" (click)="adopt()" >Adopt this Pet</button>
+
+  <button class="add-pet waves-effect waves-light btn" [disabled]="liked==true" (click)="Like()" >Like this pet</button>

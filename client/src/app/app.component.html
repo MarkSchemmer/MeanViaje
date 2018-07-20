@@ -9,19 +9,30 @@
       padding:10px 50px 50px 50px;
     }
 
+    nav ul {
+      padding-right: 50px;
+    }
+
+    nav .brand-logo{
+      padding-left : 50px;
+    }
+
   </style>
 
 </head>
 <body>
+
   <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo"> Exam!</a>
+        <a class="brand-logo"> Exam!</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a [routerLink]="['pets/new']">Add Pet to Shelter</a></li>
           <li><a [routerLink]="['']">Home</a></li>
         </ul>
       </div>
     </nav>
     <div class="cont">
+      <h1>Pet Shelter</h1>
         <router-outlet></router-outlet>
     </div>
 </body>

@@ -5,15 +5,15 @@ function router(app){
     
     app.use(bp.json())
 
-    app.get('/api/objs', api.allObjs)
+    app.get('/api/pets', api.allPets)
 
-    app.get('/api/objs/:id', api.objById)
+    app.get('/api/pets/:id', api.petById)
 
-    app.patch('/api/objs/:id', api.updateObjById)
+    app.patch('/api/pets/:id', api.updatePetById)
 
-    app.delete('/api/objs/:id', api.deleteObjById)
+    app.delete('/api/pets/:id', api.deletePetById)
 
-    app.post('/api/objs', api.createObj)
+    app.post('/api/pets', api.createPet)
 
 }
 

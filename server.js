@@ -8,7 +8,7 @@ const app = express()
 
 app.use(express.static(__dirname+'/client/dist/client'))
 app.set('views', path.join(__dirname,'/client/dist/client'))
-app.set(mongoose.connect('mongodb://localhost/prod'), {useNewUrlParser:true})
+app.set(mongoose.connect('mongodb://localhost/pets1'), {useNewUrlParser:true})
 
 
 

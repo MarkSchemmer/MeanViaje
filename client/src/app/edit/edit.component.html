@@ -1,0 +1,133 @@
+<h4>Edit this pet</h4>
+
+<style>
+    .create{
+      width: 500px;
+    }
+    .create a {
+      margin-right : 10px;
+    }
+    .red{
+      padding:10px;
+      color: snow;
+      border-radius: 5px;
+      border: 1px solid black;
+      font-weight: bolder;
+      opacity: .6;
+    }
+
+    .add-pet{
+      margin-right : 10px;
+    }
+
+  </style>
+
+
+  <div class="create row">
+      <div class="col s12">
+        <div class="row">
+
+            <div class="helper-text red" *ngIf="errors?.name">
+                {{ errors?.name }}
+            </div>
+
+
+            <div *ngIf="Name.invalid && (Name.dirty || Name.touched)"
+            class="helper-text red" >
+
+               <div *ngIf="Name.errors.required">
+                     name is required!
+               </div>
+
+               <div *ngIf="Name.errors.minlength">
+                     name must be greater than 4 chars
+               </div>
+
+               <div *ngIf="Name.errors.name">
+                  name must be greater must be unique
+             </div>
+
+           </div>
+
+
+            <div class="input-field">
+              <input
+              required
+              minlength="3"
+              type="text"
+              class="validate"
+              [(ngModel)]="pet.name"
+              name="Name"
+              #Name="ngModel">
+            </div>
+
+            <div class="helper-text red" *ngIf="errors?.petType">
+                {{ errors?.petType }}
+            </div>
+
+            <div *ngIf="petType.invalid && (petType.dirty || petType.touched)" class="helper-text red" >
+
+                    <div *ngIf="petType.errors.required"> The pet Type is required! </div>
+
+                    <div *ngIf="petType.errors.minlength"> The pet Type  must be greater than 3 chars </div>
+
+           </div>
+
+            <div class="input-field">
+                <input
+                required
+                minlength="3"
+                placeholder="Pet type"
+                [(ngModel)]="pet.petType"
+                type="text"
+                class="validate"
+                name="petType"
+                #petType="ngModel"
+                >
+            </div>
+
+            <div class="helper-text red" *ngIf="errors?.desc">
+                {{ errors?.desc }}
+            </div>
+
+            <div *ngIf="desc.invalid && (desc.dirty || desc.touched)" class="helper-text red" >
+
+                <div *ngIf="desc.errors.required"> The description is required! </div>
+
+                <div *ngIf="desc.errors.minlength"> The description must be greater than 10 chars </div>
+
+            </div>
+
+            <div class="input-field">
+                <input
+                required
+                minlength="10"
+                [(ngModel)]="pet.desc"
+                type="text"
+                class="validate"
+                name="desc"
+                #desc="ngModel">
+            </div>
+
+            <h5>Skills:</h5>
+
+            <div class="input-field">
+                <input placeholder="Skill 1" [(ngModel)]="pet.skills[0].skill_1" type="text" class="validate">
+            </div>
+
+            <div class="input-field">
+                <input placeholder="Skill 2" [(ngModel)]="pet.skills[0].skill_2" type="text" class="validate">
+            </div>
+
+            <div class="input-field">
+                <input placeholder="Skill 3" [(ngModel)]="pet.skills[0].skill_3" type="text" class="validate">
+            </div>
+
+
+        </div>
+        <button [disabled]="(!Name.valid || !petType.valid || !desc.valid)"  class="add-pet waves-effect waves-light btn"
+         (click)="editPet()">Edit Pet</button>
+        <a class="waves-effect waves-light btn"
+        (click)="goHome()">Cancal</a>
+      </div>
+    </div>
