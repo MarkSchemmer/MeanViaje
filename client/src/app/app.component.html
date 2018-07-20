@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<head>
+  <!-- materialize links here! look at main page  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+  <style>
+    .cont{
+      padding:10px 50px 50px 50px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"> Exam!</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a [routerLink]="['']">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="cont">
+        <router-outlet></router-outlet>
+    </div>
+</body>
+
